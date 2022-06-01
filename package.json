@@ -1,11 +1,11 @@
 {
-  "name": "electron-updater-example",
-  "version": "0.8.1",
+  "name": "electron-test",
+  "version": "1.0.0",
   "main": "main.js",
   "description": "electron-updater example project",
   "author": "Matt Haggard",
   "scripts": {
-    "publish": "electron-builder -p always"
+    "publish": "electron-builder --win --publish always"
   },
   "devDependencies": {
     "electron": "^14.0.1",
@@ -17,20 +17,14 @@
     "electron-updater": "^4.3.9"
   },
   "build": {
-    "appId": "com.github.iffy.electronupdaterexample",
+    "appId": "com.github.francodder.electrontest",
     "afterSign": "./build/notarize.js",
-    "mac": {
-      "category": "your.app.category.type"
-    },
-    "win": {
-      "target": "nsis"
-    },
-    "nsis": {
-      "oneClick": false
-    },
-    "linux": {
-      "category": "your.app.category.type",
-      "target": "AppImage"
-    }
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "francodder",
+        "repo": "electron-test"
+      }
+    ]
   }
 }
